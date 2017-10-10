@@ -1,5 +1,6 @@
 ;; editor
-(delete-selection-mode 1) ;; 删除选中的字符
+(menu-bar-mode t)
+(delete-selection-mode t) ;; 删除选中的字符
 
 ;; dired-mode
 (setq dired-dwim-target t) ;; 如果分屏显示两个 DiredBuffer 则拷贝就会直接拷贝到另一 DiredBuffer 目录下
