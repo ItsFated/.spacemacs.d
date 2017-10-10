@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(swiper)
+  '(ivy swiper)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -66,6 +66,9 @@ Each entry is either:
         "ss" 'swiper
         "sS" 'spacemacs/swiper-region-or-symbol
         "sb" 'swiper-all
-        "sB" 'spacemacs/swiper-all-region-or-symbol)
-      (global-set-key "\C-s" 'swiper))))
+        "sB" 'spacemacs/swiper-all-region-or-symbol))))
+
+(defun hero-layer/init-ivy()
+  (setq ivy-use-virtual-buffers t))
+
 ;;; packages.el ends here
