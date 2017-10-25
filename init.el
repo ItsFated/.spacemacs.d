@@ -151,8 +151,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Consolas"
-                               :size 12
+   dotspacemacs-default-font '("Inziu Iosevka SC"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -335,19 +335,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq yas-snippet-dirs '("~/yasnippet-snippets"))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "Microsoft Yahei" :size 14)))
-  (setq eclim-eclipse-dirs '("c:/eclipse-jee")
-        eclim-executable "~/.spacemacs.d/bin/eclim/eclim_2.7.0.jar")
-  (setq
-   ;; Use another eclimd executable
-   eclimd-executable nil
-   ;; Specify the workspace to use by default
-   eclimd-default-workspace "~/workspace"
-   ;; Whether or not to block emacs until eclimd is ready
-   eclimd-wait-for-process t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
