@@ -47,7 +47,7 @@ values."
      javascript
      html
      plantuml
-     java
+     java ;; TODO fix java layer configs
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -335,6 +335,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq yas-snippet-dirs '("~/yasnippet-snippets"))
+  (setq powerline-default-separator 'alternate)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
