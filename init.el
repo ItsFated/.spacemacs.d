@@ -65,7 +65,7 @@ values."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                     evil-args evil-ediff evil-exchange evil-unimpaired
-                    evil-indent-plus volatile-highlights smartparens
+                    evil-indent-plus volatile-highlights 
                     holy-mode skewer-mode rainbow-delimiters iedit
                     highlight-indentation vi-tilde-fringe eyebrowse
                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
@@ -73,7 +73,8 @@ values."
                     leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
                     ac-ispell ace-jump-mode auto-complete auto-dictionary
                     clang-format define-word google-translate disaster epic
-                    fancy-battery org-present orgit orglue helm-flyspell flyspell-correct-helm clean-aindent-mode
+                    fancy-battery org-present orgit orglue helm-flyspell
+                    flyspell-correct-helm clean-aindent-mode
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-themes helm-swoop smeargle
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
