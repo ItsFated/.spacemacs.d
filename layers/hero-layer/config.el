@@ -17,6 +17,15 @@
             (setq web-mode-enable-current-element-highlight t)
             (setq web-mode-enable-current-column-highlight t)))
 
+;; Windows 特殊配置
+(when (eq system-type 'windows-nt)
+  ;; 修改一些可执行文件
+  (let ((markdown-exe "pandoc"))
+    (add-hook 'markdown-mode-hook
+              (lambda ()
+                (setq markdown-command markdown-exe)))
+    (message "Windows executable:\n1. markdown: %s" markdown-exe)))
+
 ;; 文件关联 major-mode
 (setq auto-mode-alist
       (append
