@@ -17,8 +17,11 @@
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
+(define-key evil-normal-state-map (kbd "C-z") 'undo-tree-undo)
+
 ;; Visula State
 (define-key evil-visual-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
+(define-key evil-visual-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; hook keybindings
 (add-hook 'js2-mode-hook
