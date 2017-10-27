@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(ivy swiper)
+  '()
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -57,18 +57,5 @@ Each entry is either:
 
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
-
-(defun hero-layer/init-swiper()
-  (use-package swiper
-    :config
-    (progn
-      (spacemacs/set-leader-keys
-        "ss" 'swiper
-        "sS" 'spacemacs/swiper-region-or-symbol
-        "sb" 'swiper-all
-        "sB" 'spacemacs/swiper-all-region-or-symbol))))
-
-(defun hero-layer/init-ivy()
-  (setq ivy-use-virtual-buffers t))
 
 ;;; packages.el ends here

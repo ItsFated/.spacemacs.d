@@ -36,14 +36,13 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     ivy
      auto-completion
      better-defaults
      emacs-lisp
      git
      markdown
      org
-     hero-layer
      javascript
      html
      plantuml
@@ -54,6 +53,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     hero-layer
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -65,7 +65,7 @@ values."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                     evil-args evil-ediff evil-exchange evil-unimpaired
-                    evil-indent-plus volatile-highlights 
+                    evil-indent-plus volatile-highlights
                     holy-mode skewer-mode rainbow-delimiters iedit
                     highlight-indentation vi-tilde-fringe eyebrowse
                     org-bullets smooth-scrolling org-repo-todo org-download org-timer
@@ -337,6 +337,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq yas-snippet-dirs '("~/yasnippet-snippets"))
   (setq powerline-default-separator 'alternate)
+  (setq evil-hybrid-state-cursor '("SkyBlue" box))
+  (setq evil-emacs-state-cursor '("SkyBlue" box))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
