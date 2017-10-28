@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '()
+  '(winum)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -57,5 +57,10 @@ Each entry is either:
 
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+
+(defun hero-layer/init-winum()
+  (use-package winum
+    :init
+    (setq winum-auto-assign-0-to-minibuffer t)))
 
 ;;; packages.el ends here
