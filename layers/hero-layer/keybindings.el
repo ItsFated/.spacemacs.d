@@ -27,6 +27,11 @@
 (define-key evil-motion-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
 (define-key evil-motion-state-map (kbd "C-z") 'undo-tree-undo)
 
+;; Multiple-cursors
+(add-hook 'multiple-cursors-mode-hook
+          (lambda ()
+            (define-key mc/keymap (kbd "<return>") 'newline-and-indent)))
+
 ;; hook keybindings
 (add-hook 'js2-mode-hook
           (lambda ()
