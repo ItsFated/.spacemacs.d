@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum)
+  '(winum super-save)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -62,5 +62,13 @@ Each entry is either:
   (use-package winum
     :init
     (setq winum-auto-assign-0-to-minibuffer t)))
+
+(defun hero-layer/init-super-save()
+  (use-package super-save
+    :init
+    (setq super-save-auto-save-when-idle t)
+    (setq super-save-idle-duration 2.5)
+    (super-save-mode +1)))
+
 
 ;;; packages.el ends here

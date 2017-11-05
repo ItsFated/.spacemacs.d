@@ -1,3 +1,6 @@
+;; auto-save
+(setq auto-save-default nil)
+
 ;; editor
 (menu-bar-mode t)
 (delete-selection-mode t) ;; 删除选中的字符
