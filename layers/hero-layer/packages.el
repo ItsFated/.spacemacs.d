@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save)
+  '(winum super-save eclim)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -62,6 +62,19 @@ Each entry is either:
   (use-package winum
     :init
     (setq winum-auto-assign-0-to-minibuffer t)))
+
+(defun hero-layer/post-init-eclim()
+  (use-package eclim
+    :init
+    (setq
+     eclim-eclipse-dirs '("d:/DevTools/Eclipse/jee-oxygen")
+     eclim-executable "d:/DevTools/Eclipse/jee-oxygen/eclim.bat"
+     ;; Use another eclimd executable
+     eclimd-executable "d:/DevTools/Eclipse/jee-oxygen/eclimd.bat"
+     ;; Specify the workspace to use by default
+     eclimd-default-workspace "e:/EmacsWorkspace/eclimd"
+     ;; Whether or not to block emacs until eclimd is ready
+     eclimd-wait-for-process nil)))
 
 (defun hero-layer/init-super-save()
   (use-package super-save
