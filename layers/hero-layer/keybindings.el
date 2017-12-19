@@ -52,6 +52,10 @@
             (define-key org-agenda-keymap (kbd "<tab>") 'org-agenda-show-and-scroll-up)
             (define-key org-agenda-keymap (kbd "RET") 'org-agenda-goto)
             (define-key org-agenda-keymap (kbd "SPC") 'org-agenda-switch-to)))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (define-key spacemacs-org-mode-map-root-map (kbd "M-RET") 'org-meta-return)
+            (define-key spacemacs-org-mode-map-root-map (kbd "<M-return>") 'org-meta-return)))
 (add-hook 'java-mode-hook
           (lambda ()
             (define-key java-mode-map (kbd "C-x C-e") 'run-java-main-currently-buffer)
