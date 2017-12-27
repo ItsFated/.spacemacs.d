@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save eclim)
+  '(winum super-save eclim hungry-delete)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -83,5 +83,8 @@ Each entry is either:
     (setq super-save-idle-duration 2.5)
     (super-save-mode +1)))
 
-
+(defun hero-layer/post-init-hungry-delete()
+  (use-package hungry-delete
+    :init
+    (global-hungry-delete-mode t)))
 ;;; packages.el ends here
