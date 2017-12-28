@@ -7,6 +7,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (global-set-key (kbd "C-r") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
+(global-set-key (kbd "C-c s") 'eshell)
 
 ;; 第三方
 (global-set-key (kbd "C-;") 'mc/mark-all-dwim)
