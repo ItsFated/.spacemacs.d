@@ -5,6 +5,18 @@
   (let ((current (buffer-name)))
     (mapcar 'kill-buffer (cdr (buffer-list)))))
 
+(defun forward-kill-a-word ()
+  "Kill a word forward."
+  (interactive)
+  (backward-kill-word -1))
+
+(defun kill-region-or-line ()
+  "Kill the region or a line"
+  (interactive)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end))
+    (kill-whole-line)))
+
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)

@@ -3,11 +3,12 @@
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key [(control \`)] 'sr-speedbar-toggle)
 (global-set-key (kbd "M-s o") 'occur-dwim)
-(global-set-key (kbd "C-d") 'kill-whole-line)
+(global-set-key (kbd "C-d") 'kill-region-or-line)
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (global-set-key (kbd "C-r") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c s") 'eshell)
+(global-set-key (kbd "C-k") 'forward-kill-a-word)
 
 ;; 第三方
 (global-set-key (kbd "C-;") 'mc/mark-all-dwim)
