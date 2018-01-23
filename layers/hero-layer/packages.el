@@ -66,15 +66,16 @@ Each entry is either:
 (defun hero-layer/post-init-eclim()
   (use-package eclim
     :init
-    (setq
-     eclim-eclipse-dirs '("d:/DevTools/Eclipse/jee-oxygen")
-     eclim-executable "d:/DevTools/Eclipse/jee-oxygen/eclim.bat"
-     ;; Use another eclimd executable
-     eclimd-executable "d:/DevTools/Eclipse/jee-oxygen/eclimd.bat"
-     ;; Specify the workspace to use by default
-     eclimd-default-workspace "e:/EmacsWorkspace/eclimd"
-     ;; Whether or not to block emacs until eclimd is ready
-     eclimd-wait-for-process nil)))
+    (when (file-exists-p "d:/DevTools/Eclipse/jee-oxygen/eclim.bat")
+      (setq
+       eclim-eclipse-dirs '("d:/DevTools/Eclipse/jee-oxygen")
+       eclim-executable "d:/DevTools/Eclipse/jee-oxygen/eclim.bat"
+       ;; Use another eclimd executable
+       eclimd-executable "d:/DevTools/Eclipse/jee-oxygen/eclimd.bat"
+       ;; Specify the workspace to use by default
+       eclimd-default-workspace "e:/EmacsWorkspace/eclimd"
+       ;; Whether or not to block emacs until eclimd is ready
+       eclimd-wait-for-process nil))))
 
 (defun hero-layer/init-super-save()
   (use-package super-save
