@@ -45,3 +45,10 @@
   (if (buffer-modified-p (current-buffer))
       (save-buffer))
   (run-java-main (current-buffer)))
+
+(defun start-eclim-and-enable-eclim-mode ()
+  "When eclim-mode is not enable, then enable it."
+  (interactive)
+  (start-eclimd eclimd-default-workspace
+   (lambda () (when (not eclim-mode)
+                (eclim-mode 1)))))

@@ -29,12 +29,14 @@
 (define-key evil-motion-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
 (define-key evil-motion-state-map (kbd "C-z") 'undo-tree-undo)
 
-;; Multiple-cursors
+;; mode-map
+(spacemacs/set-leader-keys-for-major-mode 'java-mode
+  "ds" 'start-eclim-and-enable-eclim-mode)
+
+;; hook keybindings
 (add-hook 'multiple-cursors-mode-hook
           (lambda ()
             (define-key mc/keymap (kbd "<return>") 'newline-and-indent)))
-
-;; hook keybindings
 (add-hook 'js2-mode-hook
           (lambda ()
             (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-sexp)

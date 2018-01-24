@@ -75,7 +75,8 @@ Each entry is either:
        ;; Specify the workspace to use by default
        eclimd-default-workspace "e:/EmacsWorkspace/eclimd"
        ;; Whether or not to block emacs until eclimd is ready
-       eclimd-wait-for-process nil))))
+       eclimd-wait-for-process nil))
+    (remove-hook 'java-mode-hook 'eclim-mode)))
 
 (defun hero-layer/init-super-save()
   (use-package super-save

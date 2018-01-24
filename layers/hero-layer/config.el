@@ -20,6 +20,12 @@
             (setq web-mode-enable-current-element-highlight t)
             (setq web-mode-enable-current-column-highlight t)))
 
+;; eclim-mode 在有 eclim server 时激活
+(add-hook 'java-mode-hook
+          (lambda ()
+            (when (process-status "eclimd")
+              (eclim-mode 1))))
+
 ;; Windows 特殊配置
 (when (eq system-type 'windows-nt)
   ;; 修改一些可执行文件
