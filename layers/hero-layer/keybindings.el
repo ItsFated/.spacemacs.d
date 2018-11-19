@@ -7,7 +7,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (global-set-key (kbd "C-r") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
-(global-set-key (kbd "C-c s") 'eshell)
+(global-set-key (kbd "C-c s s") 'helm-do-grep-ag)
 (global-set-key (kbd "C-k") 'forward-kill-a-word)
 
 ;; 第三方
