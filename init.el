@@ -52,6 +52,7 @@ This function should only modify configuration layer settings."
      plantuml
      java ;; TODO fix java layer configs
      vimscript
+     windows-scripts
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -117,7 +118,7 @@ It should only modify the values of Spacemacs settings."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
 
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
@@ -501,6 +502,7 @@ before packages are loaded."
   (setq yas-snippet-dirs '("~/yasnippet-snippets/snippets"))
   (setq evil-hybrid-state-cursor '("SkyBlue" box))
   (setq evil-emacs-state-cursor '("SkyBlue" box))
+  (setq evil-insert-state-cursor '("SkyBlue" box))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
