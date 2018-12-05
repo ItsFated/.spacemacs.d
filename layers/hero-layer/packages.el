@@ -63,21 +63,6 @@ Each entry is either:
     :init
     (setq winum-auto-assign-0-to-minibuffer t)))
 
-(defun hero-layer/post-init-eclim()
-  (use-package eclim
-    :init
-    (when (file-exists-p "d:/DevTools/Eclipse/jee-oxygen/eclim.bat")
-      (setq
-       eclim-eclipse-dirs '("d:/DevTools/Eclipse/jee-oxygen")
-       eclim-executable "d:/DevTools/Eclipse/jee-oxygen/eclim.bat"
-       ;; Use another eclimd executable
-       eclimd-executable "d:/DevTools/Eclipse/jee-oxygen/eclimd.bat"
-       ;; Specify the workspace to use by default
-       eclimd-default-workspace "e:/EmacsWorkspace/eclimd"
-       ;; Whether or not to block emacs until eclimd is ready
-       eclimd-wait-for-process nil))
-    (remove-hook 'java-mode-hook 'eclim-mode)))
-
 (defun hero-layer/init-super-save()
   (use-package super-save
     :init
@@ -90,9 +75,4 @@ Each entry is either:
     :init
     (global-hungry-delete-mode t)))
 
-(defun hero-layer/post-init-plantuml-mode()
-  (use-package plantuml-mode
-    :init
-    (setq plantuml-jar-path "c:/DevTools/bin/plantuml.jar")
-    (setq plantuml-output-type "png")))
 ;;; packages.el ends here

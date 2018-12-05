@@ -1,6 +1,5 @@
 ;; Emacs 自带功能
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
-;; (global-set-key (kbd "C-z") 'undo)
 (global-set-key [(control \`)] 'sr-speedbar-toggle)
 (global-set-key (kbd "M-s o") 'occur-dwim)
 (global-set-key (kbd "C-d") 'kill-region-or-line)
@@ -19,15 +18,12 @@
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
-;; (define-key evil-normal-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; Visula State
 (define-key evil-visual-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
-;; (define-key evil-visual-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; Motion State
 (define-key evil-motion-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
-;; (define-key evil-motion-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; mode-map
 (spacemacs/set-leader-keys-for-major-mode 'java-mode
