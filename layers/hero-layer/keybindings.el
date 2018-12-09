@@ -25,10 +25,6 @@
 ;; Motion State
 (define-key evil-motion-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
 
-;; mode-map
-(spacemacs/set-leader-keys-for-major-mode 'java-mode
-  "ds" 'start-eclim-and-enable-eclim-mode)
-
 ;; hook keybindings
 (add-hook 'multiple-cursors-mode-hook
           (lambda ()

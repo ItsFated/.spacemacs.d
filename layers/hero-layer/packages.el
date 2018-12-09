@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save eclim hungry-delete plantuml-mode)
+  '(winum super-save hungry-delete plantuml-mode)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
