@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save hungry-delete plantuml-mode)
+  '(winum super-save hungry-delete dos)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -74,5 +74,12 @@ Each entry is either:
   (use-package hungry-delete
     :init
     (global-hungry-delete-mode t)))
+
+(defun hero-layer/post-init-dos()
+  (message "init-dos")
+  (use-package dos
+    :init
+    (message "init-dos :init")
+    (add-hook 'dos-mode-hook 'smartparens-mode)))
 
 ;;; packages.el ends here
