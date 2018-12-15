@@ -6,7 +6,6 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (global-set-key (kbd "C-r") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
-(global-set-key (kbd "C-c s s") 'helm-do-grep-ag)
 (global-set-key (kbd "C-k") 'forward-kill-a-word)
 
 ;; 第三方
@@ -15,15 +14,22 @@
 (global-set-key (kbd "M-j") 'mc/mark-next-like-this)
 (global-set-key (kbd "M-s i") 'helm-imenu)
 (global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-M-f") 'spacemacs/indent-region-or-buffer)
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+(global-set-key (kbd "C-r") 'undo-tree-redo)
+(global-set-key (kbd "C-c s s") 'counsel-ag)
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
+(define-key evil-normal-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; Visula State
 (define-key evil-visual-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
+(define-key evil-visual-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; Motion State
 (define-key evil-motion-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
+(define-key evil-motion-state-map (kbd "C-z") 'undo-tree-undo)
 
 ;; hook keybindings
 (add-hook 'multiple-cursors-mode-hook

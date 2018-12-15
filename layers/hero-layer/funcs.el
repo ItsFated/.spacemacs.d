@@ -36,8 +36,8 @@
         (filename (format "%s" filename)))
     (if (equal (shell-command (format "javac -d . %s" filename) output-buffer output-buffer) 0)
         (async-shell-command (format "java %s" (car (split-string filename "\\."))) output-buffer output-buffer)
-    (progn (switch-to-buffer-other-window output-buffer)
-           (messages-buffer-mode)))))
+      (progn (switch-to-buffer-other-window output-buffer)
+             (messages-buffer-mode)))))
 
 (defun run-java-main-currently-buffer ()
   "Compile and run java file use current buffer name"
@@ -45,4 +45,3 @@
   (if (buffer-modified-p (current-buffer))
       (save-buffer))
   (run-java-main (current-buffer)))
-

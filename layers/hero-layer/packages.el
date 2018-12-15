@@ -79,7 +79,6 @@ Each entry is either:
   (message "init-dos")
   (use-package dos
     :init
-    (message "init-dos :init")
     (add-hook 'dos-mode-hook 'smartparens-mode)))
 
 ;;; packages.el ends here
