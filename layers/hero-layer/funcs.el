@@ -1,3 +1,4 @@
+;; Commons
 (defun kill-other-buffers()
   "Kill all buffers without current buffer."
   (interactive)
@@ -30,6 +31,7 @@
         regexp-history)
   (call-interactively 'occur))
 
+;; Java
 (defun run-java-main (filename)
   "Compile and run java file"
   (let ((output-buffer "*Java Output*")

@@ -20,13 +20,6 @@
             (setq web-mode-enable-current-element-highlight t)
             (setq web-mode-enable-current-column-highlight t)))
 
-;; Windows 特殊配置
-(when (eq system-type 'windows-nt)
-  ;; 修改一些可执行文件
-    (add-hook 'markdown-mode-hook
-              (lambda ()
-                (setq markdown-command "pandoc"))))
-
 ;; 文件关联 major-mode
 (setq auto-mode-alist
       (append
@@ -36,4 +29,24 @@
          ("\\.plantuml\\'" . plantuml-mode)
          ("\\.puml\\'" . plantuml-mode))
        auto-mode-alist))
+;; Windows 特殊配置
+(when (eq system-type 'windows-nt)
+  ;; 修改一些可执行文件
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (setq markdown-command "pandoc")))
+  (add-hook 'minibuffer-inactive-mode-hook 'hidden-dos-eol))
 
+;; Windows OS funcs
+(defun hidden-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (unless buffer-display-table
+    (setq buffer-display-table (make-display-table)))
+  (aset buffer-display-table ?\^M []))
+
+(defun remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
