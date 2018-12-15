@@ -76,7 +76,6 @@ Each entry is either:
     (global-hungry-delete-mode t)))
 
 (defun hero-layer/post-init-dos()
-  (message "init-dos")
   (use-package dos
     :init
     (add-hook 'dos-mode-hook 'smartparens-mode)))

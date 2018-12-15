@@ -29,24 +29,17 @@
          ("\\.plantuml\\'" . plantuml-mode)
          ("\\.puml\\'" . plantuml-mode))
        auto-mode-alist))
-;; Windows 特殊配置
+
+;; Windows OS
 (when (eq system-type 'windows-nt)
-  ;; 修改一些可执行文件
   (add-hook 'markdown-mode-hook
             (lambda ()
               (setq markdown-command "pandoc")))
-  (add-hook 'minibuffer-inactive-mode-hook 'hidden-dos-eol))
-
-;; Windows OS funcs
-(defun hidden-dos-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (unless buffer-display-table
-    (setq buffer-display-table (make-display-table)))
-  (aset buffer-display-table ?\^M []))
-
-(defun remove-dos-eol ()
-  "Replace DOS eolns CR LF with Unix eolns CR"
-  (interactive)
-  (goto-char (point-min))
-  (while (search-forward "\r" nil t) (replace-match "")))
+  (add-hook 'helm-major-mode-hook 'hidden-dos-eol)
+  (add-hook 'minibuffer-setup-hook 'hidden-dos-eol)
+  (with-eval-after-load 'helm
+    (setq helm-grep-ag-command "ag --vimgrep -S %s %s %s"))
+  (with-eval-after-load 'counsel
+    (progn
+      (setq counsel-ag-base-command "ag --vimgrep -S %s")
+      (setq counsel-ag-command "ag --vimgrep -S %s"))))
