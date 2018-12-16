@@ -31,6 +31,21 @@
         regexp-history)
   (call-interactively 'occur))
 
+(defun hero-toggle-indent-offset ()
+  "toggle indent offset between 4 or 2 spaces"
+  (interactive)
+  (if (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode))
+      (progn
+        (setq js-indent-level (if (= js-indent-level 2) 4 2))
+        (setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
+  (if (eq major-mode 'web-mode)
+      (progn (setq web-mode-markup-indent-offset (if (= web-mode-markup-indent-offset 2) 4 2))
+             (setq web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2) 4 2))
+             (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
+  (if (eq major-mode 'css-mode)
+      (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
+  (spacemacs/indent-region-or-buffer))
+
 ;; Java
 (defun run-java-main (filename)
   "Compile and run java file"

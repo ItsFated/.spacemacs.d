@@ -1,4 +1,5 @@
 ;; Emacs 自带功能
+(global-set-key (kbd "C-t") 'nil)
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
 (global-set-key [(control \`)] 'sr-speedbar-toggle)
 (global-set-key (kbd "M-s o") 'occur-dwim)
@@ -7,6 +8,7 @@
 (global-set-key (kbd "C-r") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-k") 'forward-kill-a-word)
+(global-set-key (kbd "C-t x") 'hexl-mode)
 
 ;; 第三方
 (global-set-key (kbd "C-;") 'mc/mark-all-dwim)
@@ -18,6 +20,7 @@
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 (global-set-key (kbd "C-r") 'undo-tree-redo)
 (global-set-key (kbd "C-c s s") 'counsel-ag)
+(global-set-key (kbd "C-t i") 'hero-toggle-indent-offset)
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
