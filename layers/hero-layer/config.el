@@ -17,6 +17,7 @@
 ;; web-mode 高亮选中元素，显示元素区间
 (add-hook 'web-mode-hook
           (lambda ()
+            (smartparens-mode t)
             (setq web-mode-enable-current-element-highlight t)
             (setq web-mode-enable-current-column-highlight t)))
 
