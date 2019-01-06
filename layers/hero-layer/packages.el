@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save hungry-delete dos)
+  '(winum super-save hungry-delete dos meghanada)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -80,4 +80,15 @@ Each entry is either:
     :init
     (add-hook 'dos-mode-hook 'smartparens-mode)))
 
+(defun hero-layer/post-init-meghanada ()
+  (use-package meghanada
+    :bind (:map meghanada-mode-map
+           ("C-x C-e" . meghanada-exec-main)
+           ("C-q" . meghanada-back-jump))
+    :init
+    (setq meghanada-java-path (executable-find "java"))
+    (setq meghanada-maven-path (executable-find "mvn"))
+    (add-hook 'java-mode-hook
+              (lambda ()
+                (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))))
 ;;; packages.el ends here
