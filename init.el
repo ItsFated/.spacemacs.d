@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      java ;; TODO fix java layer configs
      vimscript
      windows-scripts
+     python
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
