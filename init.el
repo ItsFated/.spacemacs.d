@@ -45,7 +45,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     multiple-cursors
+     ;; multiple-cursors already installed by default
      org
      javascript
      html
