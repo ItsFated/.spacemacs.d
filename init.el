@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
      markdown
      org
      ;; multiple-cursors
-     ;; treemac
+     treemacs
      javascript
      html
      plantuml
