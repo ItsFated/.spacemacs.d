@@ -45,15 +45,16 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     multiple-cursors
-     treemacs
      org
+     ;; multiple-cursors
+     ;; treemac
      javascript
      html
      plantuml
      java ;; TODO fix java layer configs
      vimscript
      windows-scripts
+     python
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
