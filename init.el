@@ -45,9 +45,9 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     multiple-cursors
-     treemacs
      org
+     ;; multiple-cursors
+     ;; treemac
      javascript
      html
      plantuml
