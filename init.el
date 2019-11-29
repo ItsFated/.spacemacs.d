@@ -508,6 +508,7 @@ before packages are loaded."
   (setq evil-hybrid-state-cursor '("SkyBlue" box))
   (setq evil-emacs-state-cursor '("SkyBlue" box))
   (setq evil-insert-state-cursor '("SkyBlue" box))
+  (menu-bar-mode 0)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
