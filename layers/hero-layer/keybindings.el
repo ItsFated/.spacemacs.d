@@ -19,7 +19,7 @@
 (global-set-key (kbd "C-M-f") 'spacemacs/indent-region-or-buffer)
 (global-set-key (kbd "C-z") 'undo-tree-undo)
 (global-set-key (kbd "C-r") 'undo-tree-redo)
-(global-set-key (kbd "C-c s s") 'counsel-ag)
+(global-set-key (kbd "C-c s s") 'counsel-rg)
 (global-set-key (kbd "C-t i") 'hero-toggle-indent-offset)
 
 ;; Normol State

@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(sr-speedbar groovy-mode nodejs-repl super-save)
+   dotspacemacs-additional-packages '(sr-speedbar nodejs-repl super-save)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -510,8 +510,6 @@ before packages are loaded."
   (setq evil-emacs-state-cursor '("SkyBlue" box))
   (setq evil-insert-state-cursor '("SkyBlue" box))
   (setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))
-  (setq org-superstar-item-bullet-alist '((42 . 42) (43 . 43) (45 . 45)))
-  (setq org-superstar-leading-bullet " .")
   (setq org-superstar-leading-fallback 126)
   (menu-bar-mode 0)
   )
