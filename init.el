@@ -510,8 +510,10 @@ before packages are loaded."
   (setq evil-emacs-state-cursor '("SkyBlue" box))
   (setq evil-insert-state-cursor '("SkyBlue" box))
   (setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))
+  (setq org-superstar-leading-bullet "~")
   (setq org-superstar-leading-fallback 126)
   (menu-bar-mode 0)
+  (scroll-bar-mode 0)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
