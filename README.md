@@ -7,3 +7,4 @@
 6. [Maven](http://maven.apache.org) install maven, add to exec path
 7. [Gradle](https://gradle.org/) install gradle, add to exec path
 8. [clangd](https://github.com/clangd/clangd) install clangd. add to exec path
+9. [ripgrep](https://github.com/BurntSushi/ripgrep) install repgrep. add to exec path
