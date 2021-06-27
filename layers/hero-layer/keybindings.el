@@ -1,7 +1,7 @@
 ;; Emacs 自带功能
 (global-set-key (kbd "C-t") 'nil)
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
-(global-set-key [(control \`)] 'sr-speedbar-toggle)
+;; (global-set-key [(control \`)] 'sr-speedbar-toggle)
 (global-set-key (kbd "M-s o") 'occur-dwim)
 (global-set-key (kbd "C-d") 'kill-region-or-line)
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)

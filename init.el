@@ -63,7 +63,7 @@ This function should only modify configuration layer settings."
      javascript
      html
      plantuml
-     java ;; TODO fix java layer configs
+     (java :variables java-backend 'meghanada)
      vimscript
      windows-scripts
      python
@@ -87,7 +87,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(sr-speedbar nodejs-repl super-save eglot)
+   dotspacemacs-additional-packages '(nodejs-repl super-save eglot)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()

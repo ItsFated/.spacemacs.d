@@ -12,7 +12,7 @@
 (put 'dired-find-alternate-file 'disabled nil) ;; 去掉 (dired-find-alternate-file) 函数的警告
 
 ;; speedbar
-(with-eval-after-load 'speedbar (setq speedbar-show-unknown-files t))
+;; (with-eval-after-load 'speedbar (setq speedbar-show-unknown-files t))
 
 ;; web-mode 高亮选中元素，显示元素区间
 (add-hook 'web-mode-hook
