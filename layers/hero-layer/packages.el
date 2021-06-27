@@ -30,7 +30,12 @@
 ;;; Code:
 
 (defconst hero-layer-packages
-  '(winum super-save hungry-delete dos meghanada)
+  '(winum
+    super-save
+    hungry-delete
+    dos
+    meghanada
+    eglot)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -91,4 +96,11 @@ Each entry is either:
     (add-hook 'java-mode-hook
               (lambda ()
                 (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))))
+
+(defun hero-layer/post-init-eglot ()
+  (use-package eglot
+    :init
+    (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+    (add-hook 'c-mode-hook 'eglot-ensure)
+    (add-hook 'c++-mode-hook 'eglot-ensure)))
 ;;; packages.el ends here
