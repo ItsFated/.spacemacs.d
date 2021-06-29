@@ -531,7 +531,7 @@ before packages are loaded."
   (setq org-superstar-leading-bullet "~")
   (setq org-superstar-leading-fallback 126)
   (menu-bar-mode 0)
-  (scroll-bar-mode 0)
+  (menu-bar-no-scroll-bar)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
