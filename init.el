@@ -542,6 +542,7 @@ before packages are loaded."
   ;;(setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))
   ;;(setq org-superstar-leading-bullet "~")
   ;;(setq org-superstar-leading-fallback 126)
+  (setq plantuml-indent-level 2)
   (menu-bar-mode 0)
   (menu-bar-no-scroll-bar)
   (setq dotspacemacs-mode-line-unicode-symbols nil)

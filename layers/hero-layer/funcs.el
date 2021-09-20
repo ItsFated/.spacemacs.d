@@ -44,7 +44,9 @@
            (setq web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2) 4 2))
            (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
    ((eq major-mode 'css-mode)
-    (setq css-indent-offset (if (= css-indent-offset 2) 4 2))))
+    (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
+   ((eq major-mode 'plantuml-mode)
+    (setq plantuml-indent-level (if (= plantuml-indent-level 2) 4 2))))
   (spacemacs/indent-region-or-buffer))
 
 ;; Java
