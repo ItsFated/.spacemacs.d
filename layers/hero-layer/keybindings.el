@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-r") 'undo-tree-redo)
 (global-set-key (kbd "C-c s s") 'counsel-rg)
 (global-set-key (kbd "C-t i") 'hero-toggle-indent-offset)
+(spacemacs/set-leader-keys "fzf" 'fzf)
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
@@ -48,7 +49,11 @@
             (define-key js2-mode-map (kbd "C-c C-c") 'nodejs-repl-quit-or-cancel)))
 (add-hook 'dired-mode-hook
           (lambda ()
+            (evil-define-key 'normal dired-mode-map "o" 'dired-find-file-other-window)
+            (evil-define-keymap evil-normal-state-map (kbd "o") 'dired-find-file-other-window)
+            (define-key evil-normal-state-map (kbd "<normal-state> o") 'dired-find-file-other-window);在当前DiredBuffer打开文件
             (define-key dired-mode-map (kbd "e") 'dired-find-alternate-file);在当前DiredBuffer打开文件
+            (define-key dired-mode-map (kbd "o") 'dired-find-file-other-window);在当前DiredBuffer打开文件
             (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file);在当前DiredBuffer打开文件
             (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))));返回上一层使用当前 DiredBuffer
 (add-hook 'org-agenda-mode-hook

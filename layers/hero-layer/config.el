@@ -2,7 +2,6 @@
 (setq auto-save-default nil)
 
 ;; editor
-(menu-bar-mode t)
 (delete-selection-mode t) ;; 删除选中的字符
 
 ;; dired-mode
@@ -26,6 +25,7 @@
       (append
        '(("\\.js\\'" . js2-mode)
          ("\\.html\\'" . web-mode)
+         ("\\.clangd\\'" . yaml-mode)
          ("\\.[agj]sp\\'" . web-mode)
          ("\\.plantuml\\'" . plantuml-mode)
          ("\\.puml\\'" . plantuml-mode))

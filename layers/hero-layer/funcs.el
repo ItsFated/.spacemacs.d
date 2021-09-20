@@ -62,7 +62,7 @@
   (interactive)
   (if (buffer-modified-p (current-buffer))
       (save-buffer))
-  (run-java-main (current-buffer)))
+  (run-java-main (file-name-nondirectory (buffer-file-name))))
 
 ;; Windows OS funcs
 (defun hidden-dos-eol ()
@@ -76,3 +76,4 @@
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
+

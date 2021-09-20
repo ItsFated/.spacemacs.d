@@ -92,10 +92,7 @@ Each entry is either:
            ("C-q" . meghanada-back-jump))
     :init
     (setq meghanada-java-path (executable-find "java"))
-    (setq meghanada-maven-path (executable-find "mvn"))
-    (add-hook 'java-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))))
+    (setq meghanada-maven-path (executable-find "mvn"))))
 
 (defun hero-layer/post-init-eglot ()
   (use-package eglot
@@ -103,4 +100,5 @@ Each entry is either:
     (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
     (add-hook 'c-mode-hook 'eglot-ensure)
     (add-hook 'c++-mode-hook 'eglot-ensure)))
+
 ;;; packages.el ends here

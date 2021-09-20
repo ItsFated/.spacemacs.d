@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-
 (defun dotspacemacs/layers ()
   "Layer configuration:
 This function should only modify configuration layer settings."
@@ -33,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(rust
+     go
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -41,6 +41,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      yaml
      ivy
+     ;;helm
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
@@ -60,20 +61,25 @@ This function should only modify configuration layer settings."
      org
      multiple-cursors
      treemacs
+     ibuffer
      javascript
      html
-     plantuml
+     (plantuml :variables plantuml-jar-path "~/linux/bin/plantuml.jar")
      (java :variables java-backend 'meghanada)
      vimscript
      windows-scripts
      python
+     (kotlin :variables
+             kotlin-backend 'lsp
+             kotlin-lsp-jar-path "~/install/server/bin/kotlin-language-server")
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
      ;; version-control
-     ;;(chinese :variables chinese-enable-youdao-dict t)
+     (chinese :variables
+              chinese-enable-youdao-dict t)
      (c-c++ :variables
             c-c++-enable-google-style t
             c-c++-backend 'lsp-clangd)
@@ -87,13 +93,13 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(nodejs-repl super-save eglot)
+   dotspacemacs-additional-packages '(nodejs-repl super-save eglot fzf)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(pangu-spacing)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -228,7 +234,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Sarasa Mono SC"
+   dotspacemacs-default-font '("Hack Nerd Font"
                                :size 14
                                :weight normal
                                :width normal
@@ -381,7 +387,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil unicode symbols are displayed in the mode line.
    ;; If you use Emacs as a daemon and wants unicode characters only in GUI set
    ;; the value to quoted `display-graphic-p'. (default t)
-   dotspacemacs-mode-line-unicode-symbols nil
+   dotspacemacs-mode-line-unicode-symbols t
 
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
@@ -443,7 +449,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
 
    ;; Format specification for setting the frame title.
-   ;; %a - the `abbreviated-file-name', or `buffer-name'
+  ;; %a - the `abbreviated-file-name', or `buffer-name'
    ;; %t - `projectile-project-name'
    ;; %I - `invocation-name'
    ;; %S - `system-name'
@@ -527,11 +533,19 @@ before packages are loaded."
   (setq evil-hybrid-state-cursor '("SkyBlue" box))
   (setq evil-emacs-state-cursor '("SkyBlue" box))
   (setq evil-insert-state-cursor '("SkyBlue" box))
-  (setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))
-  (setq org-superstar-leading-bullet "~")
-  (setq org-superstar-leading-fallback 126)
+  (setq projectile-enable-caching t)
+  (setq projectile-file-exists-local-cache-expire (* 5 60))
+  ;;(setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))
+  ;;(setq org-superstar-leading-bullet "~")
+  ;;(setq org-superstar-leading-fallback 126)
   (menu-bar-mode 0)
   (menu-bar-no-scroll-bar)
+  (setq dotspacemacs-mode-line-unicode-symbols nil)
+  (if (display-graphic-p)
+      (spacemacs//set-monospaced-font "Hack Nerd Font" "Sarasa Mono SC" 14 16)
+    (progn
+      (setq dotspacemacs-mode-line-unicode-symbols nil)
+      (message "No graphic window")))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
