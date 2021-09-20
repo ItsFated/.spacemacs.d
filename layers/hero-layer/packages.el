@@ -88,7 +88,7 @@ Each entry is either:
 (defun hero-layer/post-init-meghanada ()
   (use-package meghanada
     :bind (:map meghanada-mode-map
-           ("C-x C-e" . meghanada-exec-main)
+           ;;("C-x C-e" . meghanada-exec-main)
            ("C-q" . meghanada-back-jump))
     :init
     (setq meghanada-java-path (executable-find "java"))
