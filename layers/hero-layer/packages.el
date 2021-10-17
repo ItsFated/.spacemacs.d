@@ -35,7 +35,8 @@
     hungry-delete
     dos
     meghanada
-    eglot)
+    eglot
+    youdao-dictionary)
   "The list of Lisp packages required by the hero-layer layer.
 
 Each entry is either:
@@ -100,5 +101,11 @@ Each entry is either:
     (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
     (add-hook 'c-mode-hook 'eglot-ensure)
     (add-hook 'c++-mode-hook 'eglot-ensure)))
+
+(defun hero-layer/post-init-youdao-dictionary ()
+  (use-package youdao-dictionary
+    :bind
+    (("M-s y" . youdao-dictionary-search-at-point+))))
+
 
 ;;; packages.el ends here

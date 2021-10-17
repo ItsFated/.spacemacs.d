@@ -58,7 +58,9 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables
+          org-enable-roam-support t
+          org-enable-roam-server t)
      multiple-cursors
      treemacs
      ibuffer
@@ -503,8 +505,9 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; resize frame when start up
   ;; ref https://emacs-china.org/t/frame/1499
-  (set-frame-width (selected-frame) 180)
-  (set-frame-height (selected-frame) 50)
+  (if (display-graphic-p)
+      (progn (set-frame-width (selected-frame) 180)
+             (set-frame-height (selected-frame) 50)))
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
@@ -518,6 +521,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq org-agenda-files '("~/org"))
+  (setq org-roam-directory (expand-file-name "~/org/roam/"))
+  (setq org-roam-v2-ack t)
   )
 
 (defun dotspacemacs/user-load ()
@@ -534,9 +539,9 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq yas-snippet-dirs '("~/yasnippet-snippets/snippets"))
-  (setq evil-hybrid-state-cursor '("SkyBlue" box))
-  (setq evil-emacs-state-cursor '("SkyBlue" box))
-  (setq evil-insert-state-cursor '("SkyBlue" box))
+  ;; (setq evil-hybrid-state-cursor '("SkyBlue" box))
+  ;; (setq evil-emacs-state-cursor '("SkyBlue" box))
+  ;; (setq evil-insert-state-cursor '("SkyBlue" box))
   (setq projectile-enable-caching t)
   (setq projectile-file-exists-local-cache-expire (* 5 60))
   ;;(setq org-superstar-headline-bullets-list '("@" "#" "$" "%"))

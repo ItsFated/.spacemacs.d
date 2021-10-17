@@ -21,7 +21,9 @@
 (global-set-key (kbd "C-r") 'undo-tree-redo)
 (global-set-key (kbd "C-c s s") 'counsel-rg)
 (global-set-key (kbd "C-t i") 'hero-toggle-indent-offset)
+(global-set-key (kbd "C-c f z f") 'counsel-fzf)
 (spacemacs/set-leader-keys "fzf" 'fzf)
+(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
 ;; Normol State
 (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-line-or-code)
@@ -64,6 +66,7 @@
             (define-key org-agenda-keymap (kbd "SPC") 'org-agenda-switch-to)))
 (add-hook 'org-mode-hook
           (lambda ()
+            (define-key spacemacs-org-mode-map-root-map (kbd "C-c i i") 'org-id-get-create)
             (define-key spacemacs-org-mode-map-root-map (kbd "M-RET") 'org-meta-return)
             (define-key spacemacs-org-mode-map-root-map (kbd "<M-return>") 'org-meta-return)))
 (add-hook 'java-mode-hook
