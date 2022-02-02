@@ -49,6 +49,72 @@
     (setq plantuml-indent-level (if (= plantuml-indent-level 2) 4 2))))
   (spacemacs/indent-region-or-buffer))
 
+(defun hero-calc-equation-at-point=()
+  (interactive)
+  (let ((str (buffer-substring (line-beginning-position) (point))))
+    (message "str:%s" str)
+    (string-match "[0-9]+ *[\/\*\+\-\%0-9 ]+ *\=? *" str)
+    (setq str (match-string 0 str))
+    (message "str:%s" str)
+    (setq str (replace-regexp-in-string "=" "" str))
+    (message "str:%s" str)
+    (insert (calc-eval str))))
+
+(defun macro-math-eval-region (beg end &optional copy-to-kill-ring digits)
+  "Evaluate the marked mathematical expression and replace it with the result.
+With arg COPY-TO-KILL-RING or prefix arg, don't replace the region, but
+save the result to the kill-ring.  When DIGITS is non-nil, or a numeric
+prefix arg is given, it determines the number of decimal digits to round
+to."
+  (interactive (list (region-beginning)
+                     (region-end)
+                     (consp current-prefix-arg)
+                     (when (numberp current-prefix-arg) current-prefix-arg)))
+  (let* ((equation (buffer-substring beg end))
+         (calc-multiplication-has-precedence nil)
+         (result (macro-math-eval (buffer-substring-no-properties beg end)))
+         (rounded (if digits
+                      (macro-math-round result digits)
+                    (number-to-string result))))
+    (message equation)
+    (if (or buffer-read-only copy-to-kill-ring)
+        (progn (deactivate-mark)
+               (kill-new rounded)
+               (message "Saved %s in kill-ring" rounded))
+      (delete-region beg end)
+      (insert (format "%s = %s" equation rounded)))))
+
+
+(defun macro-math-eval-and-round-region (beg end &optional digits)
+  "Call `macro-math-eval-region' and round the number to DIGITS places.
+If DIGITS is nil, `macro-math-rounding-precision' will be used."
+  (interactive "r\nP")
+  (macro-math-eval-region
+   beg end nil (or digits macro-math-rounding-precision)))
+
+(defsubst macro-math-symbol-value (symbol)
+  (let* ((symbol (intern symbol))
+         (value (when (boundp symbol)
+                  (symbol-value symbol))))
+    ;; Add parentheses, so two numbers aren't accidentally concatenated.
+    (if (numberp value)
+        (concat "(" (number-to-string value) ")")
+      (error "Unknown value '%s'" symbol))))
+
+(defun macro-math-eval (expression)
+  ;; Replace variables with their values.
+  (setq expression
+        (replace-regexp-in-string "\\<\\([-a-zA-Z]+\\)\\>"
+                                  'macro-math-symbol-value expression))
+  (string-to-number (calc-eval expression)))
+
+(defun macro-math-round (number digits)
+  "Return a string representation of NUMBER rounded to DIGITS places."
+  (if (<= digits 0)
+      (number-to-string (round number))
+    (format
+     (format "%%.%df" digits) number)))
+
 ;; Java
 (defun run-java-main (filename)
   "Compile and run java file"
