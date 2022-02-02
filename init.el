@@ -228,7 +228,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator box :separator-scale 1.0)
+   dotspacemacs-mode-line-theme '(spacemacs :separator alternate :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -521,7 +521,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq org-agenda-files '("~/org"))
-  (setq org-roam-directory (expand-file-name "~/org/roam/"))
+  (setq org-roam-directory (expand-file-name "~/org/roam"))
+  (setq org-roam-db-location (expand-file-name "~/org/roam/roam.db"))
   (setq org-roam-v2-ack t)
   )
 
@@ -550,6 +551,7 @@ before packages are loaded."
   (setq plantuml-indent-level 2)
   (menu-bar-mode 0)
   (menu-bar-no-scroll-bar)
+  (global-page-break-lines-mode 0)
   (setq dotspacemacs-mode-line-unicode-symbols nil)
   (if (display-graphic-p)
       (spacemacs//set-monospaced-font "Hack Nerd Font" "Sarasa Mono SC" 14 16)
