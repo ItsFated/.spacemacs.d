@@ -86,6 +86,8 @@ This function should only modify configuration layer settings."
             c-c++-enable-google-style t
             c-c++-backend 'lsp-clangd)
      (lsp :variable lsp-lens-enable t)
+     fasd
+     (spacemacs-layouts :variables layouts-enable-autosave nil layouts-autosave-delay 300)
      hero-layer
      )
    ;; List of additional packages that will be installed without being
