@@ -24,6 +24,8 @@
 (global-set-key (kbd "C-c f z f") 'counsel-fzf)
 (global-set-key (kbd "C-c i c") 'macro-math-eval-region)
 (spacemacs/set-leader-keys "fzf" 'fzf)
+(spacemacs/set-leader-keys "oll" 'hero/load-my-layout)
+(spacemacs/set-leader-keys "ols" 'hero/save-my-layout)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
 ;; Normol State

@@ -49,6 +49,14 @@
     (setq plantuml-indent-level (if (= plantuml-indent-level 2) 4 2))))
   (spacemacs/indent-region-or-buffer))
 
+(defun hero/load-my-layout ()
+  (interactive)
+  (persp-load-state-from-file (concat persp-save-dir "hero-persp-save")))
+
+(defun hero/save-my-layout ()
+  (interactive)
+  (persp-save-state-to-file (concat persp-save-dir "hero-persp-save")))
+
 (defun hero-calc-equation-at-point=()
   (interactive)
   (let ((str (buffer-substring (line-beginning-position) (point))))
