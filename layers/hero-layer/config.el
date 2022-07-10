@@ -44,3 +44,5 @@
     (progn
       (setq counsel-ag-base-command "ag --vimgrep -S %s")
       (setq counsel-ag-command "ag --vimgrep -S %s"))))
+
+(setq org-support-shift-select t)

@@ -69,7 +69,7 @@
             (define-key org-agenda-keymap (kbd "SPC") 'org-agenda-switch-to)))
 (add-hook 'org-mode-hook
           (lambda ()
-            (setq org-adapt-indentation t)
+            (org-indent-mode 1)
             (define-key spacemacs-org-mode-map-root-map (kbd "C-c i r") 'org-roam-ref-add)
             (define-key spacemacs-org-mode-map-root-map (kbd "C-c i i") 'org-id-get-create)
             (define-key spacemacs-org-mode-map-root-map (kbd "M-RET") 'org-meta-return)

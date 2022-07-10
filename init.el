@@ -554,12 +554,12 @@ before packages are loaded."
   (menu-bar-mode 0)
   (menu-bar-no-scroll-bar)
   (global-page-break-lines-mode 0)
-  (setq dotspacemacs-mode-line-unicode-symbols nil)
   (if (display-graphic-p)
       (spacemacs//set-monospaced-font "Hack Nerd Font" "Sarasa Mono SC" 14 16)
     (progn
       (setq dotspacemacs-mode-line-unicode-symbols nil)
       (message "No graphic window")))
+  (setq org-image-actual-width '(0.8))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
